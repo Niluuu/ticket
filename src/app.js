@@ -2,59 +2,32 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
+import Nav from './common/nav';
+import Frontend from './front-end';
+import Backend from './backend';
 const uniqid = require('uniqid');
-console.log(uniqid()); 
+console.log(uniqid());
 
 class App extends Component {
   render() {
     return (
       <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
-
+        <Nav />
         <Switch>
-          <Route path="/about">
-            <About />
+          <Route path="/front-end">
+            <Frontend />
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route path="/backend">
+            <Backend />
           </Route>
           <Route path="/">
-            <Home />
           </Route>
         </Switch>
-      </div>
-    </Router>
+      </Router>
     );
   }
-}
-
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
 
 export default App;
